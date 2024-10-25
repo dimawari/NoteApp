@@ -1,0 +1,255 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: linear-gradient(to bottom, white);
+    font-family: 'Times New Roman', serif;
+}
+
+main {
+    margin: 0 2rem; /* Add margin on the sides */
+}
+
+h1 {
+    font-size: 3rem;
+    color: black;
+    font-weight: 700;
+    text-align: left; /* Align header to the left */
+}
+
+#description {
+    font-size: 1.3rem;
+    color: black;
+    font-style: italic;
+    text-align: left; /* Align description to the left */
+}
+
+/* Header buttons styling */
+.header-buttons {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Center vertically */
+    margin-bottom: 2rem; /* Space below the header buttons */
+    position: relative; /* Position relative for absolute positioning of buttons */
+}
+
+/* Exit button positioned on the left */
+.exit-button {
+    cursor: pointer; /* Pointer cursor */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 2rem; /* Adjust size for visibility */
+    margin: 1rem; /* Space from the top and left */
+}
+
+/* Pin and Archive button styles */
+.pin-button, .archive-button {
+    background-color: white; /* Background color for pin and archive button */
+    border: none;
+    border-radius: 3rem;
+    padding: 0.5rem 1rem; /* Padding for the button */
+    cursor: pointer;
+    position: absolute; /* Position them absolutely */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    margin: 1rem; /* Space from the top and right */
+    margin-left: 10px; /* Space between pin and archive buttons */
+}
+
+/* Archive button styling */
+.archive-button {
+    background-color: white; /* Background color for archive button */
+    right: 5rem; /* Adjust archive position to the left of pin */
+}
+
+/* Create New Note button */
+#create-new {
+    background-color: #FFF5BA;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* View switcher styles */
+.view-switcher {
+    display: flex;
+}
+
+.view-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 1rem; /* Space between icons */
+}
+
+.view-icon img {
+    width: 24px; /* Set width of the icon */
+    height: 24px; /* Set height of the icon */
+}
+
+/* Default note styles */
+.default-note {
+    display: flex;
+    flex-direction: column; /* Stack title and body vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: auto; /* Adjust height to content */
+    padding: 2rem; /* Padding for spacing */
+    background-color: #f9f9f9; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 80%; /* Set width for responsiveness */
+    max-width: 700px; /* Max width for the note */
+    margin: 0; /* Reset margin */
+}
+
+/* Container for saved notes */
+.note-container.list-view {
+    display: block;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.note-container.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+
+/* Adjusted note size */
+.note-item {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    position: relative; /* Ensure relative positioning for child elements */
+}
+
+.note-item.pinned-note {
+    transform: scale(1.05); /* Slightly enlarge pinned notes */
+    border-color: #FFD700; /* Gold border for pinned notes */
+}
+
+.note-title {
+    font-size: 2.2rem; /* Adjusted title size */
+    margin-bottom: 10px; /* Adjusted margin */
+    font-weight: bold;
+    text-align: center;
+}
+
+.note-body {
+    flex-grow: 1;
+}
+
+.note-item::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.lyric {
+    margin-bottom: 15px; /* Adjusted lyric margin */
+}
+
+.singer {
+    align-self: flex-start;
+    margin-top: auto;
+    font-style: italic;
+}
+
+.delete-button {
+    width: 20px; /* or any size you prefer */
+    height: 20px; /* or any size you prefer */
+    cursor: pointer; 
+}
+
+
+.delete-icon {
+    width: 20px; /* Set the size of the delete icon */
+    height: 20px; /* Set the size of the delete icon */
+}
+
+.note-timestamp {
+    color: gray; /* Color for the timestamp */
+    font-style: italic; /* Italic style for distinction */
+    font-size: 0.9em; /* Slightly smaller font size */
+    margin-top: 5px; /* Add some spacing above */
+}
+
+
+.full-screen-note {
+    position: fixed; /* Fixed position for full-screen effect */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Background color */
+    padding: 20px; /* Padding for aesthetics */
+    z-index: 1000; /* Ensure it's on top */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+.full-screen-note .note-title {
+    font-size: 3rem; /* Larger title size for full-screen */
+    margin-bottom: 1rem; /* Space below the title */
+    width: 100%; /* Full width for title */
+}
+
+.full-screen-note .note-body {
+    font-size: 2rem; /* Larger body size for full-screen */
+    width: 100%; /* Full width for note body */
+    min-height: 70%; /* Minimum height for content area */
+    border: 1px solid #ccc; /* Optional: border around the content */
+    padding: 1rem; /* Padding inside the content */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.full-screen-note .note-body:empty:before {
+    content: "Your Thoughts Here..."; /* Placeholder text */
+    color: gray; /* Color for placeholder */
+    font-style: italic; /* Italic style for placeholder */
+}
+
+.full-screen-note .delete-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px; /* Larger delete button */
+    height: 30px;
+}
+
+/* Additional styles for the note item when in grid view */
+@media (min-width: 768px) {
+    .notes-container {
+        display: flex;
+        justify-content: flex-start; /* Align notes to the left */
+        align-items: flex-start; /* Align items at the top */
+        flex-wrap: wrap; /* Ensure notes wrap if there's not enough space */
+        gap: 2rem; /* Add space between the notes */
+        margin: 2rem 0; /* Add margin above and below the notes */
+    }    
+
+    /* Styles for grid view */
+    #note-container {
+        display: flex;
+        flex-wrap: wrap; /* Wrap notes in grid view */
+        justify-content: center; /* Center items in grid */
+        gap: 1rem; /* Space between notes */
+    }
+
+    .note-item {
+        width: calc(33.33% - 1rem); /* Three items per row in grid view */
+    }
+}
+
+/* Styles for list view */
+.list-view .note-item {
+    width: 100%; /* Full width in list view */
+}
